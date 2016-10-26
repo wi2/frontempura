@@ -19,6 +19,7 @@
     "webpack": "^1.13.2"
   },
   "devDependencies": {
+    "autoprefixer": "^6.5.1",
     "babel-core": "^6.18.0",
     "babel-loader": "^6.2.5",
     "node-sass": "^3.10.1",
