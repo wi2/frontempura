@@ -1,18 +1,21 @@
 module.exports = {
-  entry: './src/app.js',
+  entry: './src/index.jsx',
   output: {
-    path: './bin',
-    filename: 'app.bundle.js'
+    path: __dirname + "/dist",
+    filename: 'bundle.js'
   },
   devtool: "source-map",
+  resolve: {
+    extensions: ["", ".js", ".jsx"]
+  },
   module:{
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /(node_modules)/,
         loader: 'babel',
         query: {
-          presets: ['react','sass', 'es2015']
+          presets: ['react', 'es2015']
         }
       },
       {
@@ -20,5 +23,14 @@ module.exports = {
         loaders: ["style", "css?sourceMap", "sass?sourceMap"]
       }
     ]
-  }
+  },
+  devServer : {
+    inline : true,
+    colors: true,
+    debug: true,
+    lazy: true
+  },
+  progress: true,
+  colors: true,
+  watch: true
 }
