@@ -1,27 +1,12 @@
 import React from 'react'
 import {createStore} from 'redux'
-import {Provider} from 'react-redux'
+import {Provider, connect} from 'react-redux'
 import {render} from 'react-dom'
-
+import VisibleOlmap from './containers/VisibleOlmap'
 import ol from 'openlayers'
 
 import App from './components/app'
 import styles from './styles/main.sass'
-
-
-let store = createStore(reducer, map)
-
-render(
-  <Provider store={store}>
-    <App/>
-  </Provider>,
-  document.getElementById("root")
-)
-
-//
-function reducer(state = [], action){
-  return state
-}
 
 let mousePositionControl = new ol.control.MousePosition({
   coordinateFormat: ol.coordinate.createStringXY(4),
@@ -30,7 +15,6 @@ let mousePositionControl = new ol.control.MousePosition({
   undefinedHTML: 'Lon(x), Lat(y)'
 });
 let map = new ol.Map({
-  target: 'map',
   layers: [
     new ol.layer.Tile({
       source: new ol.source.OSM()
@@ -46,5 +30,23 @@ let map = new ol.Map({
     })
   }).extend([mousePositionControl])
 });
+
+let initialState = {
+  map : map
+}
+
+let store = createStore(reducer, initialState)
+
+render(
+  <Provider store={store}>
+    <VisibleOlmap/>
+  </Provider>,
+  document.getElementById("root")
+)
+
+//
+function reducer(state = [], action){
+  return state
+}
 
 console.log(store.getState());
