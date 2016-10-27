@@ -26,9 +26,8 @@ function reducer(state = [], action){
 let mousePositionControl = new ol.control.MousePosition({
   coordinateFormat: ol.coordinate.createStringXY(4),
   projection: 'EPSG:4326',
-  className: 'custom-mouse-position',
   target: document.getElementById('mouse-position'),
-  undefinedHTML: '&nbsp;'
+  undefinedHTML: 'Lon(x), Lat(y)'
 });
 let map = new ol.Map({
   target: 'map',
