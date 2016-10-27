@@ -10,7 +10,7 @@ import styles from './styles/main.sass'
 let mousePositionControl = new ol.control.MousePosition({
   coordinateFormat: ol.coordinate.createStringXY(4),
   projection: 'EPSG:4326',
-  target: document.getElementByTag('body'),
+  target: document.body,
   undefinedHTML: 'Lon(x), Lat(y)'
 });
 let map = new ol.Map({
