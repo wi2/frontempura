@@ -1,12 +1,12 @@
 import React from 'react'
 import PageHeader from './pageheader'
-import OlMap from './map'
+import VisibleOlMap from '../containers/VisibleOlmap'
 
 const App = () => {
   return (
     <div>
       <PageHeader/>
-      <OlMap/>
+      <VisibleOlMap/>
     </div>
   )
 }

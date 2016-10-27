@@ -2,7 +2,6 @@ import React from 'react'
 import {createStore} from 'redux'
 import {Provider, connect} from 'react-redux'
 import {render} from 'react-dom'
-import VisibleOlmap from './containers/VisibleOlmap'
 import ol from 'openlayers'
 
 import App from './components/app'
@@ -11,7 +10,7 @@ import styles from './styles/main.sass'
 let mousePositionControl = new ol.control.MousePosition({
   coordinateFormat: ol.coordinate.createStringXY(4),
   projection: 'EPSG:4326',
-  target: document.getElementById('mouse-position'),
+  target: document.getElementByTag('body'),
   undefinedHTML: 'Lon(x), Lat(y)'
 });
 let map = new ol.Map({
@@ -39,7 +38,7 @@ let store = createStore(reducer, initialState)
 
 render(
   <Provider store={store}>
-    <VisibleOlmap/>
+    <App/>
   </Provider>,
   document.getElementById("root")
 )
