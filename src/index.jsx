@@ -18,10 +18,18 @@ render(
   document.getElementById("root")
 )
 
+//
 function reducer(state = [], action){
   return state
 }
 
+let mousePositionControl = new ol.control.MousePosition({
+  coordinateFormat: ol.coordinate.createStringXY(4),
+  projection: 'EPSG:4326',
+  className: 'custom-mouse-position',
+  target: document.getElementById('mouse-position'),
+  undefinedHTML: '&nbsp;'
+});
 let map = new ol.Map({
   target: 'map',
   layers: [
@@ -32,7 +40,12 @@ let map = new ol.Map({
   view: new ol.View({
     center: [949282, 6002552],
     zoom: 4
-  })
+  }),
+  controls: ol.control.defaults({
+    attributionOptions: ({
+      collapsible: false
+    })
+  }).extend([mousePositionControl])
 });
 
 console.log(store.getState());
