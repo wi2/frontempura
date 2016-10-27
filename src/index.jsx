@@ -2,7 +2,9 @@ import React from 'react'
 import {createStore} from 'redux'
 import {Provider, connect} from 'react-redux'
 import {render} from 'react-dom'
+
 import ol from 'openlayers'
+require('openlayers/css/ol.css')
 
 import App from './components/app'
 import styles from './styles/main.sass'
@@ -10,6 +12,7 @@ import styles from './styles/main.sass'
 let mousePositionControl = new ol.control.MousePosition({
   coordinateFormat: ol.coordinate.createStringXY(4),
   projection: 'EPSG:4326',
+  className: 'mouse-posReturn',
   target: document.body,
   undefinedHTML: 'Lon(x), Lat(y)'
 });
