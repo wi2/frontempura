@@ -1,0 +1,125 @@
+//--------------//
+//  Typography  //
+//--------------//
+
+html
+  font-size: 62.5%
+  font-size: calc(1em * 0.625) // IE9-IE11 math bugfix
+
+body
+  font-size: $base-font-size
+  font-family: $base-font-family
+  font-weight: 300
+  line-height: $line-height
+
+p, ul, ol, dl, pre, th, td, label, textarea, caption, figure
+  margin-top: 0.5em
+  margin-bottom: 0
+  line-height: $line-height
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6
+  margin-top: 0.75em
+  margin-bottom: 0
+  line-height: $line-height / 3 * 2
+
+p, ul, ol, dl, pre, th, td, label, textarea, caption, figure,
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
+  &:first-child
+    margin-top: 0
+
+h1, h2, h3, .h1, .h2, .h3
+  font-family: $head-font-family
+
+h1, .h1
+  font-size: $h1-size
+h2, .h2
+  font-size: $h2-size
+h3, .h3
+  font-size: $h3-size
+h4, .h4
+  font-size: $h4-size
+h5, .h5
+  font-size: $h5-size
+h6, .h6
+  font-size: $h6-size
+
+small, .small
+  font-size: 0.85em
+
+strong, .strong
+  font-weight: 400
+
+blockquote, .blockquote
+  position: relative
+  margin: 1em 0 1em 0
+
+  &:first-child
+    margin-top: 0
+  &:last-child
+    margin-bottom: 0
+
+  &:before
+    content: '\201C'
+    font-size: 16rem
+    line-height: 0.8
+    height: 4.2rem
+    position: absolute
+    left: -1.5rem
+    top: -1rem
+    color: $base-txt-color
+    opacity: 0.25
+
+  p
+    position: relative
+    z-index: 2
+    font-family: $head-font-family
+    font-style: italic
+    font-weight: 400
+    font-size: 1.8rem
+    line-height: 1.25
+
+  .author
+    display: block
+    text-align: right
+    font-size: 0.8em
+    font-style: italic
+    margin-top: 0.75em
+    color: lighten($base-txt-color, 20%)
+
+    &:before
+      content: '\2014 \00A0'
+
+a, abbr[title]
+  color: inherit
+  font-weight: 400
+  text-decoration: none
+  border-bottom: 1px dotted $base-sec-color
+  cursor: help
+  transition: 0.25s
+
+  &:hover
+    color: $base-sec-color
+
+a
+  cursor: pointer
+
+pre, code
+  white-space: pre-line
+  white-space: pre-wrap
+  font-family: $code-font-family
+  font-size: 0.85em
+  line-height: normal
+  max-width: 100%
+  background-color: $base-txt-color
+  color: #fff
+  padding: 0.15em 0.4em
+  border-radius: 0.2em
+
+pre > code
+  display: inline-block
+  font-size: 1em
+  padding: 0
+  margin: 0.2em 0
+  background-color: transparent
+  border-radius: 0
