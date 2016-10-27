@@ -2,9 +2,10 @@ import React from 'react'
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 import {render} from 'react-dom'
-import OlMap from './components/map'
+
 import ol from 'openlayers'
 
+import App from './components/app'
 import styles from './styles/main.sass'
 
 
@@ -12,7 +13,7 @@ let store = createStore(reducer, map)
 
 render(
   <Provider store={store}>
-    <OlMap/>
+    <App/>
   </Provider>,
   document.getElementById("root")
 )

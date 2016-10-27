@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const OlMap = () => {
   return <div id="map" className="map"></div>
 }
