@@ -13,6 +13,7 @@ yarn
 
 #### Running it
 ```
-make run
+yarn run webpack
+yarn run webpack-dev-server
 go to localhost:8080/public
 ```
