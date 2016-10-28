@@ -1,5 +1,5 @@
 
-#### Prerequisites 
+#### Prerequisites
 ```
 node >= 4.6.0
 brew update
@@ -13,7 +13,8 @@ yarn
 
 #### Running it
 ```
-yarn run webpack
-yarn run webpack-dev-server
-go to localhost:8080/public
+npm start
+npm run compile
+npm run build
+go to localhost:8080/
 ```
