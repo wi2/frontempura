@@ -13,7 +13,10 @@ yarn
 
 #### Running it
 ```
-yarn run webpack
-yarn run webpack-dev-server
-go to localhost:8080/public
+npm start
+npm test
+npm run clean
+npm run compile
+npm run build
+go to localhost:8080/
 ```
