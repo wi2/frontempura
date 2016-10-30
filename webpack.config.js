@@ -2,6 +2,8 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const WebpackShellPlugin = require('webpack-shell-plugin')
+const WebpackNightWatchPlugin = require('webpack-nightwatch-plugin')
 
 const env = process.env.NODE_ENV || 'development'
 const cssLoader = [
@@ -104,6 +106,20 @@ if (config.env.__PROD__) {
   )
   config.plugins.push(new webpack.NoErrorsPlugin())
   config.plugins.push(new webpack.HotModuleReplacementPlugin())
+  if (config.env.__TEST__) {
+    config.plugins.push(
+      new WebpackShellPlugin({
+        // onBuildStart: ['env LANG=fr_FR.utf8 nightwatch -c  ./test/nightwatch.conf.js'],
+        // onBuildEnd: ['echo end'],
+        // onBuildExit: ['env LANG=fr_FR.utf8 nightwatch -c  ./test/nightwatch.conf.js']
+      })
+    )
+    config.plugins.push(
+      new WebpackNightWatchPlugin({
+        url: './test/nightwatch.conf.js'
+      })
+    )
+  }
 }
 
 console.log(config)
@@ -128,7 +144,7 @@ module.exports = {
     inline : true,
     colors: true,
     debug: true,
-    open: true,
+    open: config.env.__DEV__,
     hot: true,
     watchOptions: {
       aggregateTimeout: 300,

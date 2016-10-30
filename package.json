@@ -22,6 +22,7 @@
     "autoprefixer": "^6.5.1",
     "babel-core": "^6.18.0",
     "babel-loader": "^6.2.5",
+    "chromedriver": "^2.25.1",
     "css-loader": "^0.25.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.24.0",
@@ -29,15 +30,19 @@
     "react-hot-loader": "^3.0.0-beta.6",
     "rimraf": "^2.5.4",
     "sass-loader": "^4.0.2",
+    "selenium-server-standalone-jar": "^3.0.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2",
-    "webpack-hot-middleware": "^2.13.0"
+    "webpack-hot-middleware": "^2.13.0",
+    "webpack-shell-plugin": "^0.4.3"
   },
   "scripts": {
+    "start": "NODE_ENV=development npm run dev-server",
+    "test": "NODE_ENV=test npm run dev-server",
     "clean": "rimraf dist",
+    "dev-server": "yarn run webpack-dev-server",
     "compile": "npm run clean && yarn run webpack",
-    "start": "NODE_ENV=development yarn run webpack-dev-server",
     "build": "NODE_ENV=production npm run compile"
   }
 }
